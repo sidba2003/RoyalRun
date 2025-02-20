@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float movementSpeed;
+    [SerializeField] float playerZClampValue;
+    [SerializeField] float playerXClampValue;
 
     Vector2 movement;
     Rigidbody player_rigidBody;
@@ -26,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
     void MovePlayer()
     {
         Vector3 movementVector = new Vector3(movement.x, 0f, movement.y);
-        player_rigidBody.MovePosition(player_rigidBody.position + movementVector * (Time.fixedDeltaTime * movementSpeed));
+        Vector3 movementPosition = player_rigidBody.position + movementVector * (Time.fixedDeltaTime * movementSpeed);
+
+        movementPosition.x = Mathf.Clamp(movementPosition.x, -playerXClampValue, playerXClampValue);
+        movementPosition.z = Mathf.Clamp(movementPosition.z, -playerZClampValue, playerZClampValue);
+
+        player_rigidBody.MovePosition(movementPosition);
     }
 }
