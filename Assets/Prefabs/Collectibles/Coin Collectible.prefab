@@ -41,6 +41,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3416120224649991584}
+  - component: {fileID: 5532681987287818821}
+  - component: {fileID: 98982104037882986}
   m_Layer: 0
   m_Name: Coin Collectible
   m_TagString: Untagged
@@ -64,6 +66,39 @@ Transform:
   - {fileID: 4081920034042302789}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5532681987287818821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090559661051403849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2db273298a03b4687949dccdeaabd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &98982104037882986
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090559661051403849}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.30873463
+  m_Center: {x: -0.01, y: 1.002435, z: 0.01}
 --- !u!1001 &7350848100049871223
 PrefabInstance:
   m_ObjectHideFlags: 0
