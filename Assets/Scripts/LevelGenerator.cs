@@ -8,10 +8,17 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] GameObject chunkPrefab;
     [SerializeField] int chunksAmount;
     [SerializeField] Transform chunksParent;
-    [SerializeField] int chunkLength;
+    [SerializeField] public int chunkLength;
     [SerializeField] float moveSpeed;
 
     List<GameObject> chunks = new List<GameObject>();
+
+    public static LevelGenerator instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {

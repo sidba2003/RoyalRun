@@ -194,6 +194,10 @@ MonoBehaviour:
   - 0
   - 2.5
   fence: {fileID: 1658792006303801895, guid: 20957e3aaa4356f47abbb0f6caffca48, type: 3}
+  Apple: {fileID: 5569659737906731439, guid: 8037a997d092172449bcc30262d1d991, type: 3}
+  AppleSpawnChance: 0.3
+  Coin: {fileID: 3090559661051403849, guid: 3fcaae69a0f87d64b80e559a139c1225, type: 3}
+  CoinSpawnChance: 0.5
 --- !u!1001 &1354296132869989737
 PrefabInstance:
   m_ObjectHideFlags: 0
