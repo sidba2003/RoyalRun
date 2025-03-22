@@ -41,8 +41,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7457717839423983842}
-  - component: {fileID: 6657465452870641196}
   - component: {fileID: 7686639161013881604}
+  - component: {fileID: 7569994242367777803}
   m_Layer: 0
   m_Name: Apple Collectible
   m_TagString: Untagged
@@ -66,18 +66,6 @@ Transform:
   - {fileID: 5661303358446720664}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6657465452870641196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5569659737906731439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c2db273298a03b4687949dccdeaabd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &7686639161013881604
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -99,6 +87,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.30802405
   m_Center: {x: 0, y: 0.9200001, z: 0.02}
+--- !u!114 &7569994242367777803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569659737906731439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0f4e752117b4b48b41ae15e3e95c0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
 --- !u!1001 &5144347906882132439
 PrefabInstance:
   m_ObjectHideFlags: 0

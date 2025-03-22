@@ -10,6 +10,10 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] Transform chunksParent;
     [SerializeField] public int chunkLength;
     [SerializeField] float moveSpeed;
+    [SerializeField] float minMovementSpeed = 2f;
+    [SerializeField] float maxMovementSpeed = 10f;
+    [SerializeField] float minGravity = -2f;
+    [SerializeField] float maxGravity = -20f;
 
     List<GameObject> chunks = new List<GameObject>();
 
@@ -41,6 +45,12 @@ public class LevelGenerator : MonoBehaviour
 
             spawnZPoint += chunkLength;
         }
+    }
+
+    public void SetChunkMovementSpeed(float amount)
+    {
+        moveSpeed = Mathf.Min(Mathf.Max(moveSpeed + amount, minMovementSpeed), maxMovementSpeed);
+        Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y, Mathf.Max(Mathf.Min(Physics.gravity.z - amount, minGravity), maxGravity));
     }
 
     void MoveChunks()
