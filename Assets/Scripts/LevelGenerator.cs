@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,10 +15,13 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] float maxMovementSpeed = 10f;
     [SerializeField] float minGravity = -2f;
     [SerializeField] float maxGravity = -20f;
+    [SerializeField] int verticalFOVSpeedIncreaseValue = 12;
+    [SerializeField] int verticalFOVSpeedDecreaseValue = -8;
 
     List<GameObject> chunks = new List<GameObject>();
 
     public static LevelGenerator instance;
+    CameraController controller;
 
     private void Awake()
     {
@@ -26,6 +30,7 @@ public class LevelGenerator : MonoBehaviour
 
     void Start()
     {
+        controller = CameraController.instance;
         SpawnChunks();
     }
 
@@ -51,6 +56,9 @@ public class LevelGenerator : MonoBehaviour
     {
         moveSpeed = Mathf.Min(Mathf.Max(moveSpeed + amount, minMovementSpeed), maxMovementSpeed);
         Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y, Mathf.Max(Mathf.Min(Physics.gravity.z - amount, minGravity), maxGravity));
+
+        // if the amount is negative, means we need to slow down and send the FOVDecreaseValue, else we send the increase value in the other case
+        controller.SetVerticalFOV((amount <  0) ? verticalFOVSpeedDecreaseValue : verticalFOVSpeedIncreaseValue);
     }
 
     void MoveChunks()

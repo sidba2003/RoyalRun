@@ -10,7 +10,7 @@ public class Apple : Collectible
     }
     protected override void onPickup()
     {
-        levelGenerator.SetChunkMovementSpeed(3f);
         Destroy(gameObject);
+        levelGenerator.SetChunkMovementSpeed(3f);
     }
 }
