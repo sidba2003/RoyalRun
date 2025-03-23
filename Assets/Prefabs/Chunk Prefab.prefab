@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laneSpawnPoints:
-  - -2.5
+  - -2.7
   - 0
   - 2.5
   fence: {fileID: 1658792006303801895, guid: 20957e3aaa4356f47abbb0f6caffca48, type: 3}
