@@ -15,11 +15,27 @@ public class TimeManager : MonoBehaviour
 
     float timeLeft;
     bool fadeCalled = false;
+    bool gameFinished = false;
+    public static TimeManager Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
         timeLeft = startTimeLeft;
         text.text = timeLeft.ToString("F1");
+    }
+    public bool getGameOver()
+    {
+        return gameFinished;
+    }
+
+    public void increaseTimer(float time)
+    {
+        timeLeft += time;
     }
 
     private void Update()
@@ -29,6 +45,7 @@ public class TimeManager : MonoBehaviour
 
         if (timeLeft <= 0)
         {
+            gameFinished = true;
             Time.timeScale = 0.1f;
             gameOver.SetActive(true);
 

@@ -7,7 +7,7 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
 
-    [SerializeField] GameObject chunkPrefab;
+    [SerializeField] GameObject[] chunkPrefab;
     [SerializeField] int chunksAmount;
     [SerializeField] Transform chunksParent;
     [SerializeField] public int chunkLength;
@@ -18,11 +18,13 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] float maxGravity = -20f;
     [SerializeField] int verticalFOVSpeedIncreaseValue = 12;
     [SerializeField] int verticalFOVSpeedDecreaseValue = -8;
+    [SerializeField] GameObject CheckpointPrefab;
+    [SerializeField] int checkPointSpawnDistance;
 
     List<GameObject> chunks = new List<GameObject>();
-
     public static LevelGenerator instance;
     CameraController controller;
+    int spawnedChunksAmount;
 
     private void Awake()
     {
@@ -31,6 +33,7 @@ public class LevelGenerator : MonoBehaviour
 
     void Start()
     {
+        spawnedChunksAmount = 0;
         controller = CameraController.instance;
         SpawnChunks();
     }
@@ -40,6 +43,21 @@ public class LevelGenerator : MonoBehaviour
         MoveChunks();
     }
 
+    GameObject chunkToSpawn()
+    {
+        spawnedChunksAmount++;
+
+        if (spawnedChunksAmount % checkPointSpawnDistance == 0)
+        {
+            return CheckpointPrefab;
+        }
+        else
+        {
+            int rand = Random.Range(0, chunkPrefab.Length);
+            return chunkPrefab[rand];
+        }
+    }
+
     void SpawnChunks()
     {
         float spawnZPoint = 0;
@@ -47,7 +65,7 @@ public class LevelGenerator : MonoBehaviour
         for (int i = 0; i < chunksAmount; i++)
         {
             Vector3 chunkSpawnLocation = new Vector3(transform.localPosition.x, transform.localPosition.y, spawnZPoint);
-            chunks.Add(Instantiate(chunkPrefab, chunkSpawnLocation, Quaternion.identity, chunksParent));
+            chunks.Add(Instantiate(chunkToSpawn(), chunkSpawnLocation, Quaternion.identity, chunksParent));
 
             spawnZPoint += chunkLength;
         }
@@ -77,7 +95,7 @@ public class LevelGenerator : MonoBehaviour
 
                 // spawning a new chunk, after destroying one
                 Vector3 spawnLocation = new Vector3(transform.localPosition.x,transform.localPosition.y, lastChunkZPosition);
-                chunks.Add(Instantiate(chunkPrefab, spawnLocation, Quaternion.identity, chunksParent));
+                chunks.Add(Instantiate(chunkToSpawn(), spawnLocation, Quaternion.identity, chunksParent));
             }
         }
     }

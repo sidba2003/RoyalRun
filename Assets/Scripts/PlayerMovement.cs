@@ -10,9 +10,16 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     Rigidbody player_rigidBody;
 
+    TimeManager timeManager;
+
     void Awake()
     {
         player_rigidBody = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        timeManager = TimeManager.Instance;
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -27,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
+        if (timeManager.getGameOver()) return;
+
         Vector3 movementVector = new Vector3(movement.x, 0f, movement.y);
         Vector3 movementPosition = player_rigidBody.position + movementVector * (Time.fixedDeltaTime * movementSpeed);
 

@@ -206,8 +206,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17341378, y: 0, z: 0, w: 0.9848491}
-  m_LocalPosition: {x: 0, y: 5.53, z: -7.75}
+  m_LocalRotation: {x: 0.096249945, y: 0, z: 0, w: 0.9953572}
+  m_LocalPosition: {x: 0, y: 4.1550164, z: -8.240807}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -504,7 +504,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0049953d0b12745b377d3f818b4b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunkPrefab: {fileID: 8401593114562426794, guid: b546c15ca41b9dd409bb4a1d444424a4, type: 3}
+  chunkPrefab:
+  - {fileID: 8401593114562426794, guid: b546c15ca41b9dd409bb4a1d444424a4, type: 3}
+  - {fileID: 6553813560932299212, guid: 1f8b12f0c454cf84c8ea85315f47bcbd, type: 3}
+  - {fileID: 6553813560932299212, guid: 59366204e52efb84d984dfde95762dbd, type: 3}
+  - {fileID: 6553813560932299212, guid: f3698e03835537746b613653aff1c24d, type: 3}
+  - {fileID: 8401593114562426794, guid: b546c15ca41b9dd409bb4a1d444424a4, type: 3}
+  - {fileID: 8401593114562426794, guid: b546c15ca41b9dd409bb4a1d444424a4, type: 3}
+  - {fileID: 8401593114562426794, guid: b546c15ca41b9dd409bb4a1d444424a4, type: 3}
   chunksAmount: 12
   chunksParent: {fileID: 801091842}
   chunkLength: 10
@@ -515,6 +522,8 @@ MonoBehaviour:
   maxGravity: -20
   verticalFOVSpeedIncreaseValue: 12
   verticalFOVSpeedDecreaseValue: -8
+  CheckpointPrefab: {fileID: 6553813560932299212, guid: 2ecd3779324c3e041be5dd1b707aa58a, type: 3}
+  checkPointSpawnDistance: 8
 --- !u!4 &458722362
 Transform:
   m_ObjectHideFlags: 0
@@ -723,14 +732,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 825369276}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17341377, y: -0, z: -0, w: 0.98484904}
-  m_LocalPosition: {x: 0, y: 5.53, z: -7.75}
+  m_LocalRotation: {x: 0.096249945, y: -0, z: -0, w: 0.9953572}
+  m_LocalPosition: {x: 0, y: 4.1550164, z: -8.240807}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1848722100}
   m_Father: {fileID: 366024998}
-  m_LocalEulerAnglesHint: {x: 19.973, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 11.047, y: 0, z: 0}
 --- !u!114 &825369278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1536,7 +1545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1806948673}
-  startTimeLeft: 5
+  startTimeLeft: 10
   fadeOutEffect: {fileID: 1524661307}
   gameOver: {fileID: 616986709}
   fadeOutEffectDuration: 5
