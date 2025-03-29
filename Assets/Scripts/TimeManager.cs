@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
@@ -12,6 +13,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] Image fadeOutEffect;
     [SerializeField] GameObject gameOver;
     [SerializeField] float fadeOutEffectDuration;
+    [SerializeField] GameObject restartButton;
 
     float timeLeft;
     bool fadeCalled = false;
@@ -27,6 +29,7 @@ public class TimeManager : MonoBehaviour
     {
         timeLeft = startTimeLeft;
         text.text = timeLeft.ToString("F1");
+        Time.timeScale = 1f;
     }
     public bool getGameOver()
     {
@@ -49,13 +52,17 @@ public class TimeManager : MonoBehaviour
             Time.timeScale = 0.1f;
             gameOver.SetActive(true);
 
-
             if (!fadeCalled)
             {
                 StartCoroutine(FadeOutEffect());
                 fadeCalled = true;
             }
         }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
     }
 
     IEnumerator FadeOutEffect()
@@ -79,6 +86,6 @@ public class TimeManager : MonoBehaviour
         imC.a = 1;
         fadeImage.color = imC;
 
-        Application.Quit();
+        restartButton.SetActive(true);
     }
 }
