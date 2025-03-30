@@ -21,7 +21,7 @@ public class CheckpointTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            timeManager.increaseTimer(timeIncrease);
+           if (!timeManager.getGameOver()) timeManager.increaseTimer(timeIncrease);
         }
     }
 
