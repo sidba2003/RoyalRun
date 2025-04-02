@@ -1,3 +1,6 @@
+# Play the Game
+The game can be played [here](https://sidba2003.github.io/RoyalRun/Builds/WebBuild/index.html).
+
 # Game Controls Instructions
 ## Movement
 - Use the following keys to move your character:
